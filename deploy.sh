@@ -1,7 +1,5 @@
 #!/bin/bash
 
-GIT_BRANCH=$(git symbolic-ref --short HEAD)
-
 if [[ "$GIT_BRANCH" == "dev" ]]; then
     ./build.sh
     docker login -u bucky0838 -p dckr_pat_79C2h7PDN21tTnkWp-4-xSNlHIg
@@ -15,6 +13,6 @@ elif [[ "$GIT_BRANCH" == "main" ]]; then
     docker push bucky0838/prod
 
 else
-    echo "Unknown branch. Image not pushed."
+    echo "Deploy Error. Image not pushed."
     exit 1
 fi
