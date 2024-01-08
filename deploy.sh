@@ -1,16 +1,20 @@
 #!/bin/bash
 
-if [[ $GIT_BRANCH == "orgin/dev" ]]; then
+GIT_BRANCH=$(git symbolic-ref --short HEAD)
 
-     ./build.sh     
-     docker login -u bucky0838 -p dckr_pat_79C2h7PDN21tTnkWp-4-xSNlHIg
-     docker tag reactjs-demo_reactjs-image bucky0838/dev
-     docker push bucky0838/dev 
+if [[ "$GIT_BRANCH" == "dev" ]]; then
+    ./build.sh
+    docker login -u bucky0838 -p dckr_pat_79C2h7PDN21tTnkWp-4-xSNlHIg
+    docker tag reactjs-demo_reactjs-image bucky0838/dev
+    docker push bucky0838/dev
 
-else [[ $GIT_BRANCH == "orgin/main" ]];
+elif [[ "$GIT_BRANCH" == "main" ]]; then
+    ./build.sh
+    docker login -u bucky0838 -p dckr_pat_79C2h7PDN21tTnkWp-4-xSNlHIg
+    docker tag reactjs-demo_reactjs-image bucky0838/prod
+    docker push bucky0838/prod
 
-      ./build.sh 
-      docker login -u bucky0838 -p dckr_pat_79C2h7PDN21tTnkWp-4-xSNlHIg
-      docker tag reactjs-demo_reactjs-image bucky0838/prod
-      docker push bucky0838/prod
+else
+    echo "Unknown branch. Image not pushed."
+    exit 1
 fi
