@@ -1,5 +1,7 @@
 #!/bin/bash
 
+GIT_BRANCH=$(git branch --show-current)
+
 if [[ "$GIT_BRANCH" == "dev" ]]; then
     ./build.sh
     docker login -u bucky0838 -p dckr_pat_79C2h7PDN21tTnkWp-4-xSNlHIg
