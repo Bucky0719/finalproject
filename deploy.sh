@@ -14,5 +14,5 @@ elif [[ $GIT_BRANCH == "origin/main" ]];
       docker tag reactjs-demo_reactjs-image bucky0838/prod
       docker push bucky0838/prod
 else 
-echo "failed"
+      echo "failed"
 fi
