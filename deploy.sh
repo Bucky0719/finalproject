@@ -7,7 +7,7 @@ if [[ $GIT_BRANCH == "origin/dev" ]]; then
      docker tag reactjs-demo_reactjs-image bucky0838/dev
      docker push bucky0838/dev 
 
-elif [[ $GIT_BRANCH == "origin/main" ]];
+elif [[ $GIT_BRANCH == "origin/main" ]]; then
 
       ./build.sh 
       docker login -u bucky0838 -p dckr_pat_79C2h7PDN21tTnkWp-4-xSNlHIg
