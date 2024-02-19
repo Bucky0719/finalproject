@@ -2,7 +2,7 @@ pipeline {
     agent any
      
     triggers {
-        // Configure webhook trigger for GitHub
+        // Configure webhook trigger for GitHub (to your profile)
         githubPush()
     }
     
