@@ -1,6 +1,7 @@
 pipeline {
     agent any    
 
+    
     environment {
         EMAIL_TO = "rahulnagarajan19@gmail.com"    
     }
